@@ -40,6 +40,10 @@ This project demonstrates an analysis of Facebook advertising campaigns using Py
    plt.legend()
    plt.show()
    ```
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/78fd5263-b391-4621-9aeb-95f283a67621">
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/08a67bbd-96fe-4960-8281-b289b49b24e1">
+
 
 2. **Campaign-Level Analysis**:
    - **Total Ad Spend by Campaign**: A bar chart displaying the total ad spend for each campaign.
@@ -50,23 +54,26 @@ This project demonstrates an analysis of Facebook advertising campaigns using Py
    campaign_data = df.groupby('campaign_name').sum()
 
    # Plotting total ad spend by campaign
-   plt.figure(figsize=(12, 8))
-   sns.barplot(x=campaign_data.index, y=campaign_data['total_spend'])
+   plt.figure(figsize=(12, 6))
+   plt.bar(campaign_grouped_df['campaign_name'], campaign_grouped_df['total_spend'])
    plt.title('Total Ad Spend by Campaign')
    plt.xlabel('Campaign Name')
    plt.ylabel('Total Spend')
-   plt.xticks(rotation=90)
-   plt.show()
+   plt.xticks(rotation=45, ha='right')
+   plt.grid(True, axis='y')
 
    # Plotting total ROMI by campaign
-   plt.figure(figsize=(12, 8))
-   sns.barplot(x=campaign_data.index, y=campaign_data['romi'], color='orange')
-   plt.title('Total ROMI by Campaign')
+   plt.figure(figsize=(12, 6))
+   plt.bar(campaign_grouped_df['campaign_name'], campaign_grouped_df['romi'])
+   plt.title('Average ROMI by Campaign')
    plt.xlabel('Campaign Name')
-   plt.ylabel('ROMI')
-   plt.xticks(rotation=90)
-   plt.show()
+   plt.ylabel('Average ROMI')
+   plt.xticks(rotation=45, ha='right')
+   plt.grid(True, axis='y')
    ```
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/6f2653e4-2692-4f0b-a92e-1bb07cec5768">
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/b98aae92-7f1f-413f-8715-320955be0b48">
 
 3. **Distribution Analysis**:
    - **Box Plot of Daily ROMI by Campaign**: A box plot highlighting the distribution of daily ROMI across campaigns.
@@ -91,6 +98,11 @@ This project demonstrates an analysis of Facebook advertising campaigns using Py
    plt.show()
    ```
 
+<img width="702" alt="image" src="https://github.com/user-attachments/assets/12f4f86b-8199-4b7e-b386-4f9870cb3b8d">
+
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/0321bd44-71de-48a5-b439-78483ff1fc15">
+
+
 4. **Correlation Analysis**:
    - **Heatmap of Correlations**: A heatmap displaying the correlation between all numerical values in the dataset, identifying the highest and lowest correlations.
    - **Linear Regression Plot**: A scatter plot with a regression line illustrating the relationship between `total_spend` and `total_value` using the `lmplot()` function.
@@ -110,6 +122,11 @@ This project demonstrates an analysis of Facebook advertising campaigns using Py
    plt.show()
    ```
 
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/a76ddd52-f3c0-46d0-a639-e5009b9e4a14">
+
+<img width="701" alt="image" src="https://github.com/user-attachments/assets/8e66f528-ede1-4473-b103-c64888393ebe">
+
+
 ## Key Findings
 
 - **Daily Trends**: Significant fluctuations in ad spend and ROMI were observed throughout 2021.
@@ -124,34 +141,6 @@ This project demonstrates an analysis of Facebook advertising campaigns using Py
 - **Seaborn**
 - **Jupyter Notebook**
 
-## How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/facebook-ads-analysis.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd facebook-ads-analysis
-   ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Open the Jupyter Notebook and run the cells to see the analysis:
-   ```bash
-   jupyter notebook zajęcia_5.ipynb
-   ```
-
 ## Conclusion
 
 This project serves as an excellent example of using Python for data analysis and visualization, providing valuable insights into Facebook advertising campaigns. The visualizations offer a clear understanding of the data trends and relationships, enabling data-driven decision-making.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- **Instructor**: Thanks to the course instructor for providing the dataset and guiding through the project.
-- **OpenAI GPT-4**: Assistance in generating the content for this README.
